@@ -53,6 +53,13 @@ public class TestSCript : MonoBehaviour
 
         controller.Move(velocity * Time.deltaTime);
 
+        // slowly face the player in the direction of the movement
+        if (move != Vector3.zero)
+        {
+            transform.forward = Vector3.Lerp(transform.forward, move, 0.1f);
+            
+        }
+
 
     }
 }
