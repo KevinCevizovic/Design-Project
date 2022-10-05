@@ -13,30 +13,40 @@ public class PlayerMovement : MonoBehaviour
     public Transform arrowStart;
     public Transform arrowEnd;
 
+    public int amount;
+
     public void Update()
     {
-        arrow.transform.Rotate(new Vector3(0f, -0.6f, 0f));
+        if (amount < 4)
+        {
+            arrow.transform.Rotate(new Vector3(0f, -0.6f, 0f));
+        }
+        else
+        {
+            arrow.GetComponent<MeshRenderer>().enabled = false;
+        }
+        
         if (desiredPostions.Count >= 4)
         {
-            Play();
-
+            Invoke("Play", 2f);
         }
-
-
-
     }
 
     public void test()
     {
-        Instantiate(arrowPlane, arrow.transform.position, arrow.transform.rotation);
-        arrow.transform.position = arrowEnd.transform.position;
-
-        // Add positions to list
-        desiredPostions.Add(arrowStart.transform.position);
-
-        foreach (var item in desiredPostions)
+        if (amount < 4)
         {
-            Debug.Log(item);
+            Instantiate(arrowPlane, arrow.transform.position, arrow.transform.rotation);
+            amount++;
+            arrow.transform.position = arrowEnd.transform.position;
+
+            // Add positions to list
+            desiredPostions.Add(arrowStart.transform.position);
+
+            foreach (var item in desiredPostions)
+            {
+                Debug.Log(item);
+            }
         }
     }
 
@@ -44,7 +54,7 @@ public class PlayerMovement : MonoBehaviour
     public void Play()
     {
         // Move to the first position
-        transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], 0.1f);
+        transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], 0.06f);
 
         // If the player is at the first position
         if (transform.position == desiredPostions[0])
