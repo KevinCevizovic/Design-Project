@@ -12,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject arrowPlane;
     public Transform arrowStart;
     public Transform arrowEnd;
+    public float maxAmount = 4
 
     public int amount;
     public float speed = 0.06f;
@@ -19,7 +20,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void Update()
     {
-        if (amount < 4)
+        if (amount < maxAmount)
         {
             arrow.transform.Rotate(new Vector3(0f, -0.6f, 0f));
         }
@@ -36,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     public void test()
     {
-        if (amount < 4)
+        if (amount < maxAmount)
         {
             Instantiate(arrowPlane, arrow.transform.position, arrow.transform.rotation);
             amount++;
@@ -55,6 +56,7 @@ public class PlayerMovement : MonoBehaviour
     // Make the player move to the desired positions
     public void Play()
     {
+        transform.rotation = Quaternion.LookRotation(desiredPostions[0] - transform.position);
         // Move to the first position
         transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], speed);
 
