@@ -8,8 +8,11 @@ public class PlayerMovement : MonoBehaviour
 
     List<Vector3> desiredPostions = new List<Vector3>();
 
+    // Spinning arrow
     public GameObject arrow;
+    // Plane that doesn't rotate
     public GameObject arrowPlane;
+    // Transforms of arrow
     public Transform arrowStart;
     public Transform arrowEnd;
 
@@ -55,7 +58,6 @@ public class PlayerMovement : MonoBehaviour
     {
         // Move to the first position
         transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], 0.06f);
-
         // If the player is at the first position
         if (transform.position == desiredPostions[0])
         {
