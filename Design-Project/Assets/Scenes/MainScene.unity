@@ -822,6 +822,8 @@ MonoBehaviour:
   arrowStart: {fileID: 1718653500}
   arrowEnd: {fileID: 934984581}
   amount: 0
+  speed: 0.06
+  waitTime: 2
 --- !u!1001 &1216833745075619612
 PrefabInstance:
   m_ObjectHideFlags: 0

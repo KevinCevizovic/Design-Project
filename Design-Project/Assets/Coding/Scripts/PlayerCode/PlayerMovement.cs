@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     public Transform arrowEnd;
 
     public int amount;
+    public float speed = 0.06f;
+    public float waitTime = 2f;
 
     public void Update()
     {
@@ -28,7 +30,7 @@ public class PlayerMovement : MonoBehaviour
         
         if (desiredPostions.Count >= 4)
         {
-            Invoke("Play", 2f);
+            Invoke("Play", waitTime);
         }
     }
 
@@ -54,7 +56,7 @@ public class PlayerMovement : MonoBehaviour
     public void Play()
     {
         // Move to the first position
-        transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], 0.06f);
+        transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], speed);
 
         // If the player is at the first position
         if (transform.position == desiredPostions[0])
