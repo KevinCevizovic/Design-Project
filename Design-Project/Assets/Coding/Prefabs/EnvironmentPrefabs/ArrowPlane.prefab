@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2579586727837868328}
   - component: {fileID: 1469110139789880973}
   - component: {fileID: 3713117470392408647}
+  - component: {fileID: 1555701921269748226}
   m_Layer: 0
   m_Name: ArrowPlane
   m_TagString: Untagged
@@ -61,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 7ee589a341fa2254c82d63266b09fbeb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -83,3 +84,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &1555701921269748226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2920400579629349778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 828700eb7b22fa74291eab30d3ec871b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject arrowPlane;
     public Transform arrowStart;
     public Transform arrowEnd;
-    public float maxAmount = 4
+    public float maxAmount = 4;
 
     public int amount;
     public float speed = 0.06f;
