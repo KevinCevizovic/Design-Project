@@ -12,8 +12,10 @@ public class PlayerMovement : MonoBehaviour
     public GameObject arrowPlane;
     public Transform arrowStart;
     public Transform arrowEnd;
+
     public float maxAmount = 4;
     public float speed = 0.06f;
+    public int amount;
 
     bool move = false;
 
@@ -30,8 +32,7 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-    public int amount;
-    public float waitTime = 2f;
+
 
     public void Update()
     {
@@ -46,7 +47,21 @@ public class PlayerMovement : MonoBehaviour
 
         if (amount < maxAmount)
         {
-            arrow.transform.Rotate(new Vector3(0f, -0.6f, 0f));
+            if (Input.GetButton("Fire1"))
+            {
+                arrow.transform.localScale += new Vector3(0, 0, 0.02f);
+            }
+            else
+            {
+                arrow.transform.Rotate(new Vector3(0f, -0.6f, 0f));
+            }
+
+            if (Input.GetButtonUp("Fire1"))
+            {
+                PlaceArrows();
+                arrow.transform.localScale = new Vector3(1, 1, 1);
+            }
+
         }
         else
         {
@@ -67,7 +82,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if (amount < maxAmount)
         {
-            Instantiate(arrowPlane, arrow.transform.position, arrow.transform.rotation);
+            var tempArrow = Instantiate(arrowPlane, arrow.transform.position, arrow.transform.rotation);
+            tempArrow.transform.localScale = arrow.transform.localScale;
             amount++;
             arrow.transform.position = arrowEnd.transform.position;
 
@@ -94,10 +110,5 @@ public class PlayerMovement : MonoBehaviour
             // Remove the first position from the list
             desiredPostions.RemoveAt(0);
         }
-    }
-
-    public void SlowDown()
-    {
-        
     }
 }
