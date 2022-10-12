@@ -316,7 +316,7 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 0.95686275, b: 0.8392157, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Intensity: 1
   m_Range: 10
   m_SpotAngle: 30
@@ -375,7 +375,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 546443092}
   m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 0, y: 3, z: 0}
+  m_LocalPosition: {x: 0.61, y: 3, z: 0.45}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -537,7 +537,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 969877064, guid: 4c8b70fe5be82c645b4cd01485bb7898, type: 3}
+    - {fileID: 969877065, guid: 4c8b70fe5be82c645b4cd01485bb7898, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 4c8b70fe5be82c645b4cd01485bb7898, type: 3}
 --- !u!1 &1091185676 stripped
 GameObject:
@@ -561,9 +563,9 @@ MonoBehaviour:
   arrowStart: {fileID: 1058751445}
   arrowEnd: {fileID: 1058751444}
   maxAmount: 4
-  amount: 0
   speed: 0.06
-  waitTime: 2
+  amount: 0
+  waitTime: 4
 --- !u!1 &1314692229
 GameObject:
   m_ObjectHideFlags: 0
@@ -698,7 +700,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1091185677}
         m_TargetAssemblyTypeName: PlayerMovement, Assembly-CSharp
-        m_MethodName: test
+        m_MethodName: PlaceArrows
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -13,13 +13,37 @@ public class PlayerMovement : MonoBehaviour
     public Transform arrowStart;
     public Transform arrowEnd;
     public float maxAmount = 4;
-
-    public int amount;
     public float speed = 0.06f;
+
+    bool move = false;
+
+    private float Speed
+    {
+        get
+        { return speed; }
+        set
+        {
+            if (value > 0.06) speed = 0.06f;
+            else
+            {
+                speed = value;
+            }
+        }
+    }
+    public int amount;
     public float waitTime = 2f;
 
     public void Update()
     {
+        if (Input.GetButton("Fire1"))
+        {
+            Speed = Mathf.Lerp(Speed, 0.01f, Time.deltaTime * 20);
+        }
+        else
+        {
+            Speed = Mathf.Lerp(Speed, 0.06f, Time.deltaTime * 20);
+        }
+
         if (amount < maxAmount)
         {
             arrow.transform.Rotate(new Vector3(0f, -0.6f, 0f));
@@ -31,11 +55,15 @@ public class PlayerMovement : MonoBehaviour
         
         if (desiredPostions.Count >= 4)
         {
-            Invoke("Play", waitTime);
+            move = true;
+        }
+        if (move)
+        {
+            Play();
         }
     }
 
-    public void test()
+    public void PlaceArrows()
     {
         if (amount < maxAmount)
         {
@@ -58,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
     {
         transform.rotation = Quaternion.LookRotation(desiredPostions[0] - transform.position);
         // Move to the first position
-        transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], speed);
+        transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], Speed);
 
         // If the player is at the first position
         if (transform.position == desiredPostions[0])
@@ -66,5 +94,10 @@ public class PlayerMovement : MonoBehaviour
             // Remove the first position from the list
             desiredPostions.RemoveAt(0);
         }
+    }
+
+    public void SlowDown()
+    {
+        
     }
 }
