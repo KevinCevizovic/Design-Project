@@ -49,7 +49,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetButton("Fire1"))
             {
-                arrow.transform.localScale += new Vector3(0, 0, 0.02f);
+                arrow.transform.localScale += new Vector3(0, 0, Time.deltaTime);
             }
             else
             {
