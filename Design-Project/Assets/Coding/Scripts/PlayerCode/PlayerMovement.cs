@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
+using TMPro;
+using UnityEngine.UI;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject arrowPlane;
     public Transform arrowStart;
     public Transform arrowEnd;
+    public TMP_Text arrowText;
 
     public float maxAmount = 4;
     public float speed = 0.06f;
@@ -33,6 +36,10 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        arrowText.text = "X" + (maxAmount - amount).ToString();
+    }
 
     public void Update()
     {
@@ -86,7 +93,7 @@ public class PlayerMovement : MonoBehaviour
             tempArrow.transform.localScale = arrow.transform.localScale;
             amount++;
             arrow.transform.position = arrowEnd.transform.position;
-
+            arrowText.text = "X" + (maxAmount - amount).ToString();
             // Add positions to list
             desiredPostions.Add(arrowStart.transform.position);
 
