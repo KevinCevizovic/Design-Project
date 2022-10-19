@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using TMPro;
 using UnityEngine.UI;
+using System;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -15,6 +16,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform arrowStart;
     public Transform arrowEnd;
     public TMP_Text arrowText;
+    public GameObject Goal;
 
     public float maxAmount = 4;
     public float speed = 0.06f;
@@ -74,7 +76,7 @@ public class PlayerMovement : MonoBehaviour
         {
             arrow.GetComponent<MeshRenderer>().enabled = false;
         }
-        
+
         if (desiredPostions.Count >= 4)
         {
             move = true;
@@ -107,15 +109,33 @@ public class PlayerMovement : MonoBehaviour
     // Make the player move to the desired positions
     public void Play()
     {
-        transform.rotation = Quaternion.LookRotation(desiredPostions[0] - transform.position);
-        // Move to the first position
-        transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], Speed);
-
-        // If the player is at the first position
-        if (transform.position == desiredPostions[0])
+        try
         {
-            // Remove the first position from the list
-            desiredPostions.RemoveAt(0);
+            transform.rotation = Quaternion.LookRotation(desiredPostions[0] - transform.position);
+            // Move to the first position
+            transform.position = Vector3.MoveTowards(transform.position, desiredPostions[0], Speed);
+
+            // If the player is at the first position
+            if (transform.position == desiredPostions[0])
+            {
+                // Remove the first position from the list
+                desiredPostions.RemoveAt(0);
+            }
+        }
+        catch (ArgumentOutOfRangeException e)
+        {
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (amount == maxAmount)
+        {
+            if (other.gameObject.CompareTag("goal"))
+            {
+                other.transform.localScale = Vector3.one;
+                Debug.Log("Din mamma har vunnit");
+            }
         }
     }
 }
