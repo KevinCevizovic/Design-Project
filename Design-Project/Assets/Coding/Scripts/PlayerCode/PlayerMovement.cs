@@ -21,8 +21,10 @@ public class PlayerMovement : MonoBehaviour
     public float maxAmount = 4;
     public float speed = 0.06f;
     public int amount;
-
-    bool move = false;
+    [HideInInspector]
+    public bool move = false;
+    [HideInInspector]
+    public bool moveDone = false;
 
     private float Speed
     {
@@ -124,18 +126,7 @@ public class PlayerMovement : MonoBehaviour
         }
         catch (ArgumentOutOfRangeException e)
         {
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (amount == maxAmount)
-        {
-            if (other.gameObject.CompareTag("goal"))
-            {
-                other.transform.localScale = Vector3.one;
-                Debug.Log("Din mamma har vunnit");
-            }
+            moveDone = true;
         }
     }
 }
