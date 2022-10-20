@@ -13,13 +13,13 @@ public class Win : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.6f, transform.forward, 0.6f, mask);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.75f, transform.forward, 0.75f, mask);
 
         foreach (var hit in hits)
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                Debug.Log("You Died");
+                Destroy(gameObject);
             }
         }
         if (movement.moveDone)
@@ -36,6 +36,6 @@ public class Win : MonoBehaviour
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 0.6f);
+        Gizmos.DrawWireSphere(transform.position, 0.75f);
     }
 }
