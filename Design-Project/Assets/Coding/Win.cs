@@ -3,7 +3,6 @@ using UnityEngine;
 
 public class Win : MonoBehaviour
 {
-    public LayerMask mask;
     PlayerMovement movement;
 
     private void Start()
@@ -13,13 +12,13 @@ public class Win : MonoBehaviour
 
     private void Update()
     {
-        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.75f, transform.forward, 0.75f, mask);
+        RaycastHit[] hits = Physics.SphereCastAll(transform.position, 0.75f, transform.forward, 0.75f);
 
         foreach (var hit in hits)
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
-                Destroy(gameObject);
+                Debug.Log("Loss!");
             }
         }
         if (movement.moveDone)
@@ -29,6 +28,7 @@ public class Win : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Goal"))
                 {
                     Debug.Log("Win!");
+                    SceneManager.LoadScene(SceneManager.sceneCount + 1);
                 }
             }
         }
