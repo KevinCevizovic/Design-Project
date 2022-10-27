@@ -28,6 +28,7 @@ public class Win : MonoBehaviour
                 if (hit.collider.gameObject.CompareTag("Goal"))
                 {
                     Debug.Log("Win!");
+                    SceneManager.LoadScene(SceneManager.sceneCount + 1);
                 }
             }
         }
