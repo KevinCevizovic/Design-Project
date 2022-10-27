@@ -1655,6 +1655,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: OxygenTank
       objectReference: {fileID: 0}
+    - target: {fileID: 7125672967227849513, guid: 3ee5e487cac9d4f4a9adf6cb90d41105, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     - target: {fileID: 7613521416889590163, guid: 3ee5e487cac9d4f4a9adf6cb90d41105, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -1756,6 +1760,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Redbarrel
       objectReference: {fileID: 0}
+    - target: {fileID: 2572979393312119509, guid: 556000dd69efd444ca3803a05ef8b3d4, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 556000dd69efd444ca3803a05ef8b3d4, type: 3}
 --- !u!1001 &6768146356069947492
@@ -1767,6 +1775,10 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6768146354745641666, guid: 27c763ca8ea229543984528b51d9dec4, type: 3}
       propertyPath: m_Name
+      value: Enemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 6768146354745641666, guid: 27c763ca8ea229543984528b51d9dec4, type: 3}
+      propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
     - target: {fileID: 6768146354745641676, guid: 27c763ca8ea229543984528b51d9dec4, type: 3}
@@ -1889,6 +1901,10 @@ PrefabInstance:
     - target: {fileID: 8447947426172180306, guid: a8a8695e7f4f7d443b7620335027997c, type: 3}
       propertyPath: m_Name
       value: RustyRim
+      objectReference: {fileID: 0}
+    - target: {fileID: 9078021551491155434, guid: a8a8695e7f4f7d443b7620335027997c, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8a8695e7f4f7d443b7620335027997c, type: 3}
