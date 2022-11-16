@@ -18,6 +18,7 @@ public class Win : MonoBehaviour
         {
             if (hit.collider.gameObject.CompareTag("Enemy"))
             {
+                GetComponent<PlayerMovement>().enabled = false;
                 Debug.Log("Loss!");
             }
         }
