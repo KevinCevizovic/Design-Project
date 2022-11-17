@@ -25,13 +25,17 @@ public class Enemy : MonoBehaviour
         {
             desiredIndex = 2;
         }
-        if ((transform.position - positions[2].position).magnitude < 0.4f)
+        try
         {
-            desiredIndex = 0;
+            if ((transform.position - positions[2].position).magnitude < 0.4f)
+            {
+                desiredIndex = 0;
+            }
         }
-
+        catch { }
+        
         transform.position = Vector3.MoveTowards(transform.position, positions[desiredIndex].position, speed * Time.deltaTime);
-
+        
         Vector3 targetDirection = positions[desiredIndex].position - transform.position;
         float singleStep = speed * Time.deltaTime;
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, singleStep, 0.0f);
